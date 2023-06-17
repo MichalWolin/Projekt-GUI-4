@@ -13,11 +13,14 @@ public class SnakeCellRenderer extends DefaultTableCellRenderer {
 
         int cellValue = (int) value;
         switch (cellValue) {
-            case 0 -> component.setBackground(Color.GREEN);
-            case 1 -> component.setBackground(Color.BLUE);
-            case 2 -> component.setBackground(Color.BLACK);
+            case 0 -> component.setBackground(new Color(153, 255, 51));
+            case 1 -> component.setBackground(new Color(62, 115, 168));
+            case 2 -> component.setBackground(new Color(86, 171, 224));
             case 3 -> component.setBackground(Color.RED);
-            default -> component.setBackground(table.getBackground());
+        }
+
+        if(hasFocus){
+            ((JComponent) component).setBorder(BorderFactory.createEmptyBorder());
         }
 
         return component;

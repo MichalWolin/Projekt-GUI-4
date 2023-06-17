@@ -1,6 +1,6 @@
 package events;
 
-import logic.Direction;
+import other.Direction;
 
 import java.util.EventObject;
 

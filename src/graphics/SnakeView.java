@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import events.DirectionEvent;
 import events.DirectionListener;
 import logic.*;
+import other.Direction;
 
 public class SnakeView extends JTable {
     public SnakeView(SnakeModel snakeModel) {
