@@ -1,5 +1,5 @@
 import graphics.SnakeView;
-import logic.UserInput;
+import logic.SnakeModel;
 
 import javax.swing.*;
 
@@ -11,11 +11,14 @@ public class S29239Projekt04 extends JFrame {
     }
 
     public S29239Projekt04() {
-        SnakeView view = new SnakeView();
+        SnakeModel model = new SnakeModel();
+        SnakeView view = new SnakeView(model);
+
+        view.addDirectionListener(model);
 
         this.getContentPane().add(view);
 
-        this.setSize(335, 538);
+        this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

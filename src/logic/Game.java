@@ -1,17 +1,20 @@
 package logic;
 
-public class Game implements Runnable{
-    public Game(){
-
+public class Game implements Runnable {
+    private SnakeModel snakeModel;
+    public Game(SnakeModel snakeModel) {
+        this.snakeModel = snakeModel;
     }
 
     @Override
     public void run() {
-//        try {
-//            Thread.sleep(1000);
-//            System.out.println("hej");
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
+        while(true){
+            try {
+                Thread.sleep(500);
+                System.out.println(snakeModel.getDirection());
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
