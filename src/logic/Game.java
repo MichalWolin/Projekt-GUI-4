@@ -25,7 +25,7 @@ public class Game implements Runnable {
             try {
                 Thread.sleep(200);
                 if(!checkForCollision()){
-                    snakeModel.addScore(10);
+//                    snakeModel.addScore(10);
                     moveSnake();
                 }
             } catch (InterruptedException e) {
