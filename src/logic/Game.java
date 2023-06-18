@@ -23,10 +23,11 @@ public class Game implements Runnable {
     public void run() {
         while(isRunning){
             try {
-                Thread.sleep(200);
+                Thread.sleep(100);
                 if(!checkForCollision()){
-//                    snakeModel.addScore(10);
                     moveSnake();
+                }else{
+                    snakeModel.fireCollisionEvent();
                 }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -118,12 +119,10 @@ public class Game implements Runnable {
         }
 
         if(x < 0 || x > 15 || y < 0 || y > 24){
-            System.out.println("Collision with wall");
             isRunning = false;
             return true;
         }
         if((int)(snakeModel.getValueAt(y, x)) == 2){
-            System.out.println("Collision with tail");
             isRunning = false;
             return true;
         }

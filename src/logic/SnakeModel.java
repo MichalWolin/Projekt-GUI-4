@@ -1,9 +1,6 @@
 package logic;
 
-import events.DirectionEvent;
-import events.DirectionListener;
-import events.ScoreEvent;
-import events.ScoreListener;
+import events.*;
 import other.Direction;
 
 import javax.swing.table.AbstractTableModel;
@@ -75,6 +72,19 @@ public class SnakeModel extends AbstractTableModel implements DirectionListener 
         ScoreEvent event = new ScoreEvent(this, this.score);
         for(ScoreListener listener : listeners){
             listener.scoreChange(event);
+        }
+    }
+
+    private ArrayList<CollisionListener> collisionListeners = new ArrayList<>();
+
+    public void addCollisionListener(CollisionListener listener){
+        this.collisionListeners.add(listener);
+    }
+
+    public void fireCollisionEvent(){
+        CollisionEvent event = new CollisionEvent(this, this.score);
+        for(CollisionListener listener : collisionListeners){
+            listener.collisionOccurred(event);
         }
     }
 }
